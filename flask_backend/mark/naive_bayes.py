@@ -19,6 +19,7 @@ import joblib  # 用于保存模型
 
 path = os.path.join(os.getcwd(), 'mark')
 
+
 def load_stopwords():
     '''
     加载停词表
@@ -367,3 +368,34 @@ def get_keyword(content):
     # 基于textrank算法进行关键词抽取
     keyword2 = textrank(content, topK=20, withWeight=True)
     return keyword1, keyword2
+
+
+def retrain(content, marks, model_path):
+    classifier = joblib.load(model_path)  # 加载模型
+    words_after_filter = preprocess(content, load_stopwords())
+    features_list = []
+    features_list = TextFeatures(
+        words_after_filter, load_rece_list(), features_list)
+    train_feature_list = []
+    train_label_list = []
+    for feature, word in zip(features_list, words_after_filter):
+        if(word in marks['当事人']):
+            train_feature_list.append(feature)
+            train_label_list.append('person')
+        elif(word in marks['性别']):
+            train_feature_list.append(feature)
+            train_label_list.append('sex')
+        elif(word in marks['民族']):
+            train_feature_list.append(feature)
+            train_label_list.append('race')
+        elif(word in marks['出生地']):
+            train_feature_list.append(feature)
+            train_label_list.append('location')
+        elif(word in marks['案由']):
+            train_feature_list.append(feature)
+            train_label_list.append('crime')
+        elif(word in marks['相关法院']):
+            train_feature_list.append(feature)
+            train_label_list.append('court')
+    classifier.partial_fit(train_feature_list, train_label_list)
+    joblib.dump(classifier, model_path)
