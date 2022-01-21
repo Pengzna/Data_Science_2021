@@ -17,10 +17,10 @@
       <el-card :body-style="{ padding: '0px' }" class="card2">
         <img src="../assets/lawHall.png" class="image">
         <div style="padding: 14px;">
-          <span class="intro1">1000+</span>
+          <span class="intro1">200+</span>
           <br>
           <br>
-          <span class="intro2">数据集训练模型与测试</span>
+          <span class="intro2">人工标注数据集训练与测试</span>
         </div>
       </el-card>
 

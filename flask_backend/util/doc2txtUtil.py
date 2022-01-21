@@ -40,7 +40,7 @@ def save_doc_to_txt(rawpath, outpath):  # doc转docx
 
 if __name__ == '__main__':
     # 注意：目录的格式必须写成双反斜杠
-    rawpath = 'D:\\python codes\\flaskProject\\raw\\'
-    outpath = 'D:\\python codes\\flaskProject\\res\\'
+    rawpath = 'D:\\python codes\\flaskProject\\flask_backend\\case_doc\\'
+    outpath = 'D:\\python codes\\flaskProject\\flask_backend\\case_txt\\'
     save_doc_to_txt(rawpath, outpath)
     print('ok.')
