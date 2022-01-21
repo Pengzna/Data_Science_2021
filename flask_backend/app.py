@@ -48,18 +48,13 @@ def handleSplit():
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST'
     }
-    testText = {
-        'noun': ['test10', 'test12', 'test13', 'test14', 'test15', 'test16', 'test17'],
-        'verb': ['test20', 'test21', 'test22', 'test23', 'test24', 'test25', 'test26', 'test27'],
-        'adjectives': ['test30', 'test31', 'test32', 'test33', 'test34', 'test35', 'test36', 'test37'],
-        'adverb': ['test40', 'test41', 'test42', 'test43', 'test44', 'test45', 'test46', 'test47']
-    }
     if request.method == 'POST':
         data = request.json
         text = data.get('text')
         global caseText
         caseText = text
         print(text)
+        # print(naive_bayes.get_keyword(text))
         splitedText = naive_bayes.predict_for_txt(text, os.path.join(os.getcwd(), 'mark\\model\\MultinomialNB_model.m'))
         print('Navie bayes: ', end="")
         print(splitedText)
@@ -73,7 +68,7 @@ def handleSplit():
         print('Split ok.')
         return res
     # 调用NLP，将分词结果返回给前端
-    return testText
+    # return testText
 
 
 @app.route('/onNLP', methods=['GET', 'POST', 'OPTIONS'])
@@ -103,11 +98,7 @@ def handleNLP():
             'time': NLPedText['相关时间'],
             'birthTime': NLPedText['出生时间'],
             'lawHall': NLPedText['相关法院'],
-            # 'image_criminal_url': image_urls['criminal'],
-            # 'image_case_url': image_urls['case'],
-            # 'image_hall_url': image_urls['hall']
         }
-        # print(res)
         print('NLP ok.')
         return res
     # 调用NLP，将分词结果返回给前端
@@ -115,11 +106,6 @@ def handleNLP():
 
 @app.route('/onMark', methods=['GET', 'POST', 'OPTIONS'])
 def handleMark():
-    headers = {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST'
-    }
     if request.method == 'POST':
         data = request.json
         # key转中文
@@ -183,12 +169,6 @@ def envisible(text):
     handle_date2image(criminal, 'criminal')
     handle_date2image(case, 'case')
     handle_date2image(hall, 'hall')
-    # urls = {
-    #     'criminal': criminal_url,
-    #     'case': case_url,
-    #     'hall': hall_url
-    # }
-    # return urls
 
 
 def handle_date2image(text, type):
