@@ -415,6 +415,7 @@ def retrain(content, marks, model_path):
         elif(word.word in marks['相关法院']):
             train_feature_list.append(feature)
             train_label_list.append('court')
+    print(train_feature_list)
+    print(train_label_list)
     classifier.partial_fit(train_feature_list, train_label_list)
     joblib.dump(classifier, model_path)
-
