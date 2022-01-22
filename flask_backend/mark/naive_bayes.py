@@ -397,22 +397,22 @@ def retrain(content, marks, model_path):
     train_feature_list = []
     train_label_list = []
     for feature, word in zip(features_list, words_after_filter):
-        if(word in marks['当事人']):
+        if(word.word in marks['当事人']):
             train_feature_list.append(feature)
             train_label_list.append('person')
-        elif(word in marks['性别']):
+        elif(word.word in marks['性别']):
             train_feature_list.append(feature)
             train_label_list.append('sex')
-        elif(word in marks['民族']):
+        elif(word.word in marks['民族']):
             train_feature_list.append(feature)
             train_label_list.append('race')
-        elif(word in marks['出生地']):
+        elif(word.word in marks['出生地']):
             train_feature_list.append(feature)
             train_label_list.append('location')
-        elif(word in marks['案由']):
+        elif(word.word in marks['案由']):
             train_feature_list.append(feature)
             train_label_list.append('crime')
-        elif(word in marks['相关法院']):
+        elif(word.word in marks['相关法院']):
             train_feature_list.append(feature)
             train_label_list.append('court')
     classifier.partial_fit(train_feature_list, train_label_list)

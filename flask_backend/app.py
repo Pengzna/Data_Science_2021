@@ -117,6 +117,9 @@ def handleMark():
         data['相关法院'] = data.pop('lawHall')
         print(data)
         # 反馈学习 更新模型
+        # print('content: ' + caseText)
+        # print('mark: ' + data)
+        # print('path: ' + os.path.join(os.getcwd(), 'mark\\model\\MultinomialNB_model.m'))
         # naive_bayes.retrain(caseText, data, os.path.join(os.getcwd(), 'mark\\model\\MultinomialNB_model.m'))
         # 写入标注
         with open('json_result/标注.json', 'w', encoding='utf-8') as f:
