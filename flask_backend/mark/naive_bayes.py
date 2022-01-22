@@ -370,7 +370,6 @@ def get_keyword(content):
     return keyword1, keyword2
 
 
-
 if __name__ == '__main__':
     text = "中华人民共和国最高人民法院" \
            "刑 事 裁 定 书" \
@@ -387,6 +386,7 @@ if __name__ == '__main__':
            "二〇二一年七月十七日" \
            "书记员　张名嘉"
     print(get_keyword(text))
+
 
 def retrain(content, marks, model_path):
     classifier = joblib.load(model_path)  # 加载模型

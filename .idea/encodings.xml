@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/flask_backend/handle_data/csv_file/label.csv" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/flask_backend/mark/all_label/乔树生抢劫死刑复核刑事裁定书.json" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/flask_backend/mark/all_label/佟亮故意杀人死刑复核刑事裁定书.json" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/flask_backend/mark/all_label/刁立全故意杀人死刑复核刑事裁定书.json" charset="GBK" />
+  </component>
+</project>

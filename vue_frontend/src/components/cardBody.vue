@@ -30,7 +30,7 @@
           <span class="intro1">反馈学习</span>
           <br>
           <br>
-          <span class="intro2">利用数据分析算法提高标注效率</span>
+          <span class="intro2">根据用户标注反馈训练优化模型</span>
         </div>
       </el-card>
 
