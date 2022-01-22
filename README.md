@@ -97,11 +97,11 @@ npm run serve
 
 [![7sstWq.png](https://s4.ax1x.com/2022/01/19/7sstWq.png)](https://imgtu.com/i/7sstWq)
 
-- 随后可以在页面看到后端的分词结果，用户可以进行手动标注。点击下方按钮保存标注结果。标注结果将以json格式保存到本地。
+- 随后可以在页面看到后端的分词结果，用户可以进行手动标注。点击下方按钮保存标注结果。标注结果将以json格式保存到本地。**如果用户认为后台的分词不准确，可以根据案例文本在下方输入框手动添加标记。**
 
-[![7ssUS0.png](https://s4.ax1x.com/2022/01/19/7ssUS0.png)](https://imgtu.com/i/7ssUS0)
+[![7hehgH.png](https://s4.ax1x.com/2022/01/22/7hehgH.png)](https://imgtu.com/i/7hehgH)
 
-[![7ssalV.png](https://s4.ax1x.com/2022/01/19/7ssalV.png)](https://imgtu.com/i/7ssalV)
+[![7hef8e.png](https://s4.ax1x.com/2022/01/22/7hef8e.png)](https://imgtu.com/i/7hef8e)
 
 [![7ssyk9.png](https://s4.ax1x.com/2022/01/19/7ssyk9.png)](https://imgtu.com/i/7ssyk9)
 
