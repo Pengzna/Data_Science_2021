@@ -76,7 +76,21 @@
     position: relative;
     margin-bottom: 9px"></div>
        </div>
-
+       <div>
+         <span style="font-family: 方正苏新诗柳楷简体;
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 40px">补充标记:</span>
+         <el-input
+             style="margin-top: 10px;
+             width: 55%;"
+             placeholder="如果您觉得系统分词不准确，可在此手动添加标记"
+             v-model="complement_mark.criminal"
+             clearable
+             >
+         </el-input>
+       </div>
      </el-tab-pane>
      <el-tab-pane label="性别">
        <div style="text-align: left" v-for="(item, word, index) of tag" :key="index">
@@ -96,7 +110,21 @@
     position: relative;
     margin-bottom: 10px"></div>
        </div>
-
+       <div>
+         <span style="font-family: 方正苏新诗柳楷简体;
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 40px">补充标记:</span>
+         <el-input
+             style="margin-top: 10px;
+             width: 55%;"
+             placeholder="如果您觉得系统分词不准确，可在此手动添加标记"
+             v-model="complement_mark.sex"
+             clearable
+         >
+         </el-input>
+       </div>
      </el-tab-pane>
      <el-tab-pane label="民族">
        <div style="text-align: left" v-for="(item, word, index) of tag" :key="index">
@@ -116,7 +144,21 @@
     position: relative;
     margin-bottom: 10px"></div>
        </div>
-
+       <div>
+         <span style="font-family: 方正苏新诗柳楷简体;
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 40px">补充标记:</span>
+         <el-input
+             style="margin-top: 10px;
+             width: 55%;"
+             placeholder="如果您觉得系统分词不准确，可在此手动添加标记"
+             v-model="complement_mark.ethic"
+             clearable
+         >
+         </el-input>
+       </div>
      </el-tab-pane>
      <el-tab-pane label="出生地">
        <div style="text-align: left" v-for="(item, word, index) of tag" :key="index">
@@ -136,7 +178,21 @@
     position: relative;
     margin-bottom: 10px"></div>
        </div>
-
+       <div>
+         <span style="font-family: 方正苏新诗柳楷简体;
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 40px">补充标记:</span>
+         <el-input
+             style="margin-top: 10px;
+             width: 55%;"
+             placeholder="如果您觉得系统分词不准确，可在此手动添加标记"
+             v-model="complement_mark.birth"
+             clearable
+         >
+         </el-input>
+       </div>
      </el-tab-pane>
      <el-tab-pane label="案由">
        <div style="text-align: left" v-for="(item, word, index) of tag" :key="index">
@@ -156,7 +212,21 @@
     position: relative;
     margin-bottom: 10px"></div>
        </div>
-
+       <div>
+         <span style="font-family: 方正苏新诗柳楷简体;
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 40px">补充标记:</span>
+         <el-input
+             style="margin-top: 10px;
+             width: 55%;"
+             placeholder="如果您觉得系统分词不准确，可在此手动添加标记"
+             v-model="complement_mark.reason"
+             clearable
+         >
+         </el-input>
+       </div>
      </el-tab-pane>
      <el-tab-pane label="相关法院">
 
@@ -178,7 +248,21 @@
     position: relative;
     margin-bottom: 10px"></div>
        </div>
-
+       <div>
+         <span style="font-family: 方正苏新诗柳楷简体;
+    font-size: larger;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-right: 40px">补充标记:</span>
+         <el-input
+             style="margin-top: 10px;
+             width: 55%;"
+             placeholder="如果您觉得系统分词不准确，可在此手动添加标记"
+             v-model="complement_mark.lawHall"
+             clearable
+         >
+         </el-input>
+       </div>
      </el-tab-pane>
    </el-tabs>
 
@@ -328,6 +412,15 @@ export default {
       url_criminal: '',
       url_case: '',
       url_hall: '',
+      //补充分词结果
+      complement_mark:{
+        criminal:'',
+        sex:'',
+        ethic:'',
+        birth:'',
+        reason:'',
+        lawHall:''
+      }
     }
   },
   methods: {
@@ -466,12 +559,37 @@ export default {
       const ethicLen = this.selectedWords.ethic.length;
       const lawHallLen = this.selectedWords.lawHall.length;
       const birthLen = this.selectedWords.birth.length;
+      const comple_criminalLen = this.complement_mark.criminal.length;
+      const comple_sexLen = this.complement_mark.sex.length;
+      const comple_reasonLen = this.complement_mark.reason.length;
+      const comple_ethicLen = this.complement_mark.ethic.length;
+      const comple_lawHallLen = this.complement_mark.lawHall.length;
+      const comple_birthLen = this.complement_mark.birth.length;
       if(criminalLen === 0 && sexLen === 0 && reasonLen === 0 && ethicLen === 0 && lawHallLen === 0 && birthLen === 0){
         this.$alert('请按照您的需求进行标注！', '标注为空', {
           confirmButtonText: '确定',
         });
       }
       else {
+        console.log('ok')
+        if(comple_criminalLen !== 0){
+          this.selectedWords.criminal.push(this.complement_mark.criminal)
+        }
+        if(comple_sexLen !== 0){
+          this.selectedWords.sex.push(this.complement_mark.sex)
+        }
+        if(comple_reasonLen !== 0){
+          this.selectedWords.reason.push(this.complement_mark.reason)
+        }
+        if(comple_ethicLen !== 0){
+          this.selectedWords.ethic.push(this.complement_mark.ethic)
+        }
+        if(comple_lawHallLen !== 0){
+          this.selectedWords.lawHall.push(this.complement_mark.lawHall)
+        }
+        if(comple_birthLen !== 0){
+          this.selectedWords.birth.push(this.complement_mark.birth)
+        }
         var markResult
         const path = 'http://localhost:5000/onMark';
         const that = this;
