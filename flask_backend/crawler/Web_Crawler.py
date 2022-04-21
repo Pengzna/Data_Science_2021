@@ -55,9 +55,9 @@ class web_Crawler(object):
         el_frame = driver.find_element_by_id('contentIframe')
         driver.switch_to.frame(el_frame)
 
-        driver.find_element_by_xpath('//*[@id="root"]/div/form/div/div[1]/div/div/div/input').send_keys('19965597930')
+        driver.find_element_by_xpath('//*[@id="root"]/div/form/div/div[1]/div/div/div/input').send_keys('用户名')
 
-        driver.find_element_by_xpath('//*[@id="root"]/div/form/div/div[2]/div/div/div/input').send_keys('Liuxinyi2020')
+        driver.find_element_by_xpath('//*[@id="root"]/div/form/div/div[2]/div/div/div/input').send_keys('密码')
 
         driver.find_element_by_xpath('//*[@id="root"]/div/form/div/div[3]/span').click()
 
